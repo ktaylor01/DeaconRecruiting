@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsp/core">
+
+<h:head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<title>Add Contact</title>
+
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputStylesheet library="css" name="add-contact-style.css"></h:outputStylesheet>
+</h:head>
+
+<h:body>
+	<div id="wrapper">
+		<div id="header">
+			<H2>Catholic Earth</H2>
+		</div>
+	</div>
+
+	<div id="container">
+		<H3>Add Contact</H3>
+		<h:messages globalOnly="true" />
+		<h:form id="form" style="margin-top:10px">
+			<h:panelGrid columns="3">
+				<h:outputLabel>First Name:</h:outputLabel>
+				<h:inputText value="#{emailContact.firstName}" id="firstName" />
+				<h:messages for="firstName" />
+				<h:outputLabel>Last Name:</h:outputLabel>
+				<h:inputText value="#{emailContact.lastName}" id="lastName" />
+				<h:messages for="lastName" />
+				<h:outputLabel>Email:</h:outputLabel>
+				<h:inputText value="#{emailContact.email}" id="email"
+					required="true" requiredMessage="Your email address is mandatory" />
+				<h:messages for="email" />
+
+				<h:outputLabel />
+				<h:commandButton value="Save" styleClass="save"
+					action="#{emailContactController.addContact(emailContact)}" />
+			</h:panelGrid>
+		</h:form>
+		<div style="clear: both;"></div>
+		<p>
+			<h:outputLink value="list_contacts.xhtml">Back to List</h:outputLink>
+		</p>
+	</div>
+</h:body>
+
+</html>
